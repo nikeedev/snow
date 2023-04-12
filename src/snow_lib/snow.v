@@ -29,18 +29,21 @@ pub fn load(file string) {
 
 	mut f := os.read_lines(file) or { panic(err) }
 
-	mut src_raw := []string{}
+	mut src_raw := ""
 	for line in f {
-		src_raw = line.str().split("\n")
+		src_raw += line.str()
+	}
+	mut src_arr := src_raw.split("\n")[0].split(" ")
+	println(src_arr)
+
+	for i := 0; i < src_arr.len; i++ {
+		src_arr[i] = src_arr[i].trim_space()
+
 	}
 
 	println(src_raw)
-	for i=0; i < src_raw.len; i++ {
-		src_raw[i] = src_raw[i].trim_space()
 
-	}
-
-
+	/*
 	mut i := 0
 	for line in src {
 		for i < line.len {
@@ -65,7 +68,7 @@ pub fn load(file string) {
 		}
 		i = 0
 	}
-
+	*/
 	for token in tokens {
 		println(token)
 	}
