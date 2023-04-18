@@ -1,6 +1,4 @@
 # Binaries for programs and plugins
-main
-snow
 *.exe
 *.exe~
 *.so
@@ -15,10 +13,3 @@ bin/
 .idea/
 .vscode/
 *.iml
-
-# ENV
-.env
-
-# vweb and database
-*.db
-*.js
