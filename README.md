@@ -6,4 +6,6 @@
 This project is just started on, so it doesn't work yet at all.
 Follow the repo for commits
 
-Don't forget to ⭐**star**⭐  the project! 
+Don't forget to :star2:**star**:star2:  the project! 
+
+Made in 🇳🇴!
