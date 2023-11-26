@@ -12,12 +12,15 @@ set_target_properties(GLFW_LIB PROPERTIES IMPORTED_LOCATION "../libs/lib/glfw3.l
 
 
 set(SNOW_SRC
-        src/math/Vector2.h
-        src/math/Vector2.cpp
         src/core/Application.h
         src/core/Application.cpp
+        src/Shader.h
+        src/Shader.cpp
+        src/math/Vector2.h
+        src/math/Vector2.cpp
         src/core/Window.h
         src/core/Window.cpp
+
 )
 
 add_library(snow STATIC

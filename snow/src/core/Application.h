@@ -16,7 +16,7 @@ public:
 private:
     Window window;
 
-    void processInput();
+    void processInput() const;
 
 //    std::vector<Shader> shaders;
 };
