@@ -1,8 +1,4 @@
-#include "glad/glad.h"
-#include "GLFW/glfw3.h"
-#include "math/Vector2.h"
-
-#include <iostream>
+#include "snow.hpp"
 
 int main()
 {

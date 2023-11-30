@@ -12,15 +12,13 @@ set_target_properties(GLFW_LIB PROPERTIES IMPORTED_LOCATION "../libs/lib/glfw3.l
 
 
 set(SNOW_SRC
-        src/core/Application.h
+        src/snow.hpp
         src/core/Application.cpp
-        src/Shader.h
-        src/Shader.cpp
-        src/math/Vector2.h
-        src/math/Vector2.cpp
-        src/core/Window.h
+        src/core/Shader.cpp
         src/core/Window.cpp
-
+        src/objects/Rectangle.cpp
+        src/core/Camera.cpp
+        src/core/Scene.h
 )
 
 add_library(snow STATIC

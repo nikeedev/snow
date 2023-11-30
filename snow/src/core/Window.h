@@ -3,20 +3,20 @@
 
 #include "glad/glad.h"
 #include "GLFW/glfw3.h"
-#include "../math/Vector2.h"
+#include "glm/glm.hpp"
 
 class Window {
 public:
 
     Window();
 
-    Window(const char* title, Vector2 screen_size);
+    Window(const char* title, glm::vec2 screen_size);
 
     void resize_window();
 
     GLFWwindow* glfw_window = nullptr;
 protected:
-    Vector2 screen_size;
+    glm::vec2 screen_size;
 };
 
 

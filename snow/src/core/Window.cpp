@@ -18,8 +18,8 @@ Window::Window() {
     glfwSetFramebufferSizeCallback(glfw_window, framebuffer_size_callback);
 }
 
-Window::Window(const char* title, Vector2 screen_size) {
-     glfw_window = glfwCreateWindow((int)screen_size.x, (int)screen_size.y, title, nullptr, nullptr);
+Window::Window(const char* title, Vec2 screen_size) {
+     glfw_window = glfwCreateWindow(static_cast<int>(screen_size.x), static_cast<int>(screen_size.y), title, nullptr, nullptr);
 
      if (glfw_window == nullptr)
      {
@@ -30,7 +30,7 @@ Window::Window(const char* title, Vector2 screen_size) {
      glfwMakeContextCurrent(glfw_window);
      glfwSetFramebufferSizeCallback(glfw_window, framebuffer_size_callback);
 
-     if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
+     if (!gladLoadGLLoader(reinterpret_cast<GLADloadproc>(glfwGetProcAddress)))
      {
          throw std::runtime_error("ERROR CODE -1;\n\tFailed to init GLAD");
      }
