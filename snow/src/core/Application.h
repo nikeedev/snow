@@ -11,6 +11,8 @@
 #include <vector>
 #include <memory>
 
+#define MAX_SCENES 10
+
 class Application {
 
 public:
@@ -18,10 +20,12 @@ public:
     /**
      * \brief Application class, sets up all from window, camera and game loop.
      * \param title Window title
-     * \param screen_size Sets the window size for the inital window `glm::vec2`.
+     * \param screen_size Sets the window size for the initial window `glm::vec2`.
      * \param _background_color Sets the color using the `glm::vec4` format
      */
-    Application(const char* title, glm::vec2 screen_size, const glm::vec4& _background_color);
+    Application(const char* title, glm::vec2 _screen_size, glm::vec2 _camera_pos);
+
+    Application();
 
     /**
      * \brief Gameloop for your Snow application:
@@ -31,7 +35,11 @@ public:
     **/
     void loop();
 
-    void Application::SetWindowTitle(const char* title) const;
+    void SetWindowTitle(const char* title) const;
+
+    void addScene(std::unique_ptr<Scene> scene);
+
+    ~Application();
 
 private:
     Window window;
@@ -42,13 +50,10 @@ private:
     int current_shader = 0;
     std::vector<Shader> shaders;
 
-    Camera camera;
+    Camera camera = Camera(glm::vec2{}, glm::vec2{});
 
-    glm::vec4 background_color{};
+//    glm::vec4 background_color{};
     void processInput() const;
-
-    ~Application();
-
 };
 
 

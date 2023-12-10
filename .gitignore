@@ -2,3 +2,6 @@ libs/src/
 libs/lib/
 libs/include/
 cmake-build-debug/
+out/
+.vs
+.vscode

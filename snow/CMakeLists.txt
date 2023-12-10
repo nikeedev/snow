@@ -1,15 +1,15 @@
-# GLAD
-add_library(GLAD STATIC ../libs/src/glad.c)
+## GLAD
+#add_library(GLAD STATIC ${CMAKE_SOURCE_DIR}/libs/src/glad.c)
 
 include_directories(
         src
-        ../libs/include
+        ${CMAKE_SOURCE_DIR}/libs/include
 )
 
-# Link GLFW library
-add_library(GLFW_LIB STATIC IMPORTED)
-set_target_properties(GLFW_LIB PROPERTIES IMPORTED_LOCATION "../libs/lib/glfw3.lib")
-
+## Link GLFW library
+#add_library(GLFW_LIB STATIC IMPORTED)
+#set_target_properties(GLFW_LIB PROPERTIES IMPORTED_LOCATION "${CMAKE_SOURCE_DIR}/libs/lib/glfw3.lib")
+#
 
 set(SNOW_SRC
         src/snow.hpp

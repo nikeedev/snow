@@ -1,11 +1,14 @@
 #include "Application.h"
 
-Application::Application(const char* title, glm::vec2 _screen_size, glm::vec2 _camera_pos, const glm::vec4& _background_color) {
+
+Application::Application(const char* title, glm::vec2 _screen_size, glm::vec2 _camera_pos) {
     this->window = Window(title, _screen_size);
     this->camera = Camera(_screen_size, _camera_pos);
 
-    this->background_color = _background_color;
+    scenes.reserve(MAX_SCENES);
 }
+
+Application::Application() : Application("Snow engine", glm::vec2{900, 600}, glm::vec2 {}) {}
 
 void Application::processInput() const {
     if (glfwGetKey(window.glfw_window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
@@ -17,6 +20,14 @@ void Application::SetWindowTitle(const char* title) const {
 }
 
 void Application::loop() {
+
+    for (auto&& scene : scenes) {
+        if (scene == nullptr) {
+            std::cerr << "No scene initialized! Use `app.addScene(\"scene\");`" << std::endl;
+            exit(-1);
+        }
+    }
+
     double currentFrame = glfwGetTime();
     double lastFrame = currentFrame;
     double deltaTime;
@@ -24,6 +35,8 @@ void Application::loop() {
     for (auto&& scene : scenes) {
         scene->Once();
     }
+
+    int i = 0;
 
     while (!glfwWindowShouldClose(window.glfw_window))
     {
@@ -34,34 +47,45 @@ void Application::loop() {
         // Input stuff here:
         processInput();
 
-        this->scenes[current_scene]->Update(deltaTime);
+        if (scenes[current_scene] != nullptr) {
 
-        // Rendering stuff here:
-        glClearColor(0.39f, 0.58f, 0.92f, 1.0f);
-        glClear(GL_COLOR_BUFFER_BIT);
+            this->scenes[current_scene]->Update(deltaTime);
+
+            std::cout << "R" << this->scenes[current_scene]->background_color.r << " G" << this->scenes[current_scene]->background_color.g << " B" << this->scenes[current_scene]->background_color.b << " A" << this->scenes[current_scene]->background_color.a << std::endl;
+            // Rendering stuff here:
+            glClearColor((GLfloat)this->scenes[current_scene]->background_color.r, (GLfloat)this->scenes[current_scene]->background_color.g, (GLfloat)this->scenes[current_scene]->background_color.b, (GLfloat)this->scenes[current_scene]->background_color.a);
+            glClear(GL_COLOR_BUFFER_BIT);
+
+            // THE TRIANGLE!!!
+
+            shaders[current_shader].use();
+            this->scenes[current_scene]->Draw();
+
+    //        glBindVertexArray(VAO);
+
+    //        glDrawArrays(GL_TRIANGLES, 0, 3);
+
+    //        glBindVertexArray(0);
 
 
-        // THE TRIANGLE!!!
+            // Update stuff here:
+            glfwSwapBuffers(window.glfw_window);
+            glfwPollEvents();
 
-        shaders[current_shader]->use();
-        this->scenes[current_scene]->Draw();
+            std::cout << "Iteration: " << i++ << std::endl;
 
-//        glBindVertexArray(VAO);
-
-//        glDrawArrays(GL_TRIANGLES, 0, 3);
-
-//        glBindVertexArray(0);
-
-
-        // Update stuff here:
-        glfwSwapBuffers(window.glfw_window);
-        glfwPollEvents();
+        } else {
+            std::cerr << "ERROR: Scenes are not initialized! (Why?)" << std::endl;
+            exit(-1);
+        }
     }
 }
 
-Application::~Application() {
-    glDeleteProgram(shaders[current_shader]->ID);
+void Application::addScene(std::unique_ptr<Scene> scene) {
+    this->scenes.push_back(std::move(scene));
+}
 
-    glfwTerminate();
+Application::~Application() {
+    glDeleteProgram(shaders[current_shader].ID);
 }
 

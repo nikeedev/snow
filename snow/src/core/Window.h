@@ -8,13 +8,13 @@
 class Window {
 public:
 
-    Window();
-
-    Window(const char* title, glm::vec2 screen_size);
+    Window(const char* title = "Snow", glm::vec2 screen_size = glm::vec2{900, 600});
 
     void resize_window();
 
     GLFWwindow* glfw_window = nullptr;
+
+    ~Window();
 protected:
     glm::vec2 screen_size;
 };

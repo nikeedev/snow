@@ -1,5 +1,5 @@
 #include "Rectangle.h"
 
-Rectangle::Rectangle() {
+Rectangle::Rectangle(glm::vec4 color) {
 
 }
