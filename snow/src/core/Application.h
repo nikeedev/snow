@@ -39,6 +39,8 @@ public:
 
     void addScene(std::unique_ptr<Scene> scene);
 
+    void addShader(Shader shader);
+
     ~Application();
 
 private:

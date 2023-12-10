@@ -36,10 +36,13 @@ void Application::loop() {
         scene->Once();
     }
 
-    int i = 0;
-
     while (!glfwWindowShouldClose(window.glfw_window))
     {
+        if (this->scenes[current_scene] == nullptr) {
+            std::cout << "WARNING: Current used scene was not found or is invalid; Resetting to scene before if available" << std::endl;
+            current_scene--;
+        }
+
         currentFrame = glfwGetTime();
         deltaTime = currentFrame - lastFrame;
         lastFrame = currentFrame;
@@ -51,9 +54,11 @@ void Application::loop() {
 
             this->scenes[current_scene]->Update(deltaTime);
 
-            std::cout << "R" << this->scenes[current_scene]->background_color.r << " G" << this->scenes[current_scene]->background_color.g << " B" << this->scenes[current_scene]->background_color.b << " A" << this->scenes[current_scene]->background_color.a << std::endl;
+//            std::cout << "R" << this->scenes[current_scene]->background_color.r << " G" << this->scenes[current_scene]->background_color.g << " B" << this->scenes[current_scene]->background_color.b << " A" << this->scenes[current_scene]->background_color.a << std::endl;
             // Rendering stuff here:
+
             glClearColor((GLfloat)this->scenes[current_scene]->background_color.r, (GLfloat)this->scenes[current_scene]->background_color.g, (GLfloat)this->scenes[current_scene]->background_color.b, (GLfloat)this->scenes[current_scene]->background_color.a);
+
             glClear(GL_COLOR_BUFFER_BIT);
 
             // THE TRIANGLE!!!
@@ -72,8 +77,6 @@ void Application::loop() {
             glfwSwapBuffers(window.glfw_window);
             glfwPollEvents();
 
-            std::cout << "Iteration: " << i++ << std::endl;
-
         } else {
             std::cerr << "ERROR: Scenes are not initialized! (Why?)" << std::endl;
             exit(-1);
@@ -85,7 +88,12 @@ void Application::addScene(std::unique_ptr<Scene> scene) {
     this->scenes.push_back(std::move(scene));
 }
 
+void Application::addShader(Shader shader) {
+    this->shaders.push_back(shader);
+}
+
 Application::~Application() {
     glDeleteProgram(shaders[current_shader].ID);
+    glfwTerminate();
 }
 
