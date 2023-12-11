@@ -8,7 +8,7 @@ Application::Application(const char* title, glm::vec2 _screen_size, glm::vec2 _c
     scenes.reserve(MAX_SCENES);
 }
 
-Application::Application() : Application("Snow engine", glm::vec2{900, 600}, glm::vec2 {}) {}
+// Application::Application() : Application("Snow engine", glm::vec2{900, 600}, glm::vec2 {}) {}
 
 void Application::processInput() const {
     if (glfwGetKey(window.glfw_window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
