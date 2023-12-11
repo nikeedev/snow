@@ -25,7 +25,7 @@ public:
      */
     Application(const char* title, glm::vec2 _screen_size, glm::vec2 _camera_pos);
 
-    Application();
+    // Application();
 
     /**
      * \brief Gameloop for your Snow application:
