@@ -5,6 +5,7 @@
 #include "core/Camera.h"
 #include "core/Window.h"
 #include "core/Shader.h"
-#include "objects/Rectangle.h"
+#include "mesh/Rectangle.h"
+#include "mesh/Triangle.h"
 
 #endif //SNOW_H
