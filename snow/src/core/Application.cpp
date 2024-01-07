@@ -1,14 +1,12 @@
 #include "Application.h"
 
 
-Application::Application(const char* title, glm::vec2 _screen_size, glm::vec2 _camera_pos) {
-    this->window = Window(title, _screen_size);
-    this->camera = Camera(_screen_size, _camera_pos);
-
+Application::Application(const char* title, glm::vec2 _screen_size, glm::vec2 _camera_pos) : window(Window(title, _screen_size)), camera(Camera(_screen_size, _camera_pos)) {
     scenes.reserve(MAX_SCENES);
 }
 
-// Application::Application() : Application("Snow engine", glm::vec2{900, 600}, glm::vec2 {}) {}
+//Application::Application() : Application("Snow engine", glm::vec2{900, 600}, glm::vec2 {}) {}
+//
 
 void Application::processInput() const {
     if (glfwGetKey(window.glfw_window, GLFW_KEY_ESCAPE) == GLFW_PRESS)

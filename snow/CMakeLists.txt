@@ -16,9 +16,11 @@ set(SNOW_SRC
         src/core/Application.cpp
         src/core/Shader.cpp
         src/core/Window.cpp
-        src/objects/Rectangle.cpp
+        src/mesh/Rectangle.cpp
         src/core/Camera.cpp
         src/core/Scene.h
+        src/mesh/Triangle.h
+        src/mesh/Triangle.cpp
 )
 
 add_library(snow STATIC

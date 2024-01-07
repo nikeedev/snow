@@ -12,7 +12,7 @@
 // http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2439.htm
 
 // GLM_CXX11_NONSTATIC_MEMBER_INIT
-// Initialization of class objects by rvalues - GCC any
+// Initialization of class mesh by rvalues - GCC any
 // http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2004/n1610.html
 
 // GLM_CXX11_NONSTATIC_MEMBER_INIT

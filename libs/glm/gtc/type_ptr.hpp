@@ -15,7 +15,7 @@
 /// a pointer to the memory layout of the object. Matrix types store their values
 /// in column-major order.
 ///
-/// This is useful for uploading data to matrices or copying data to buffer objects.
+/// This is useful for uploading data to matrices or copying data to buffer mesh.
 ///
 /// Example:
 /// @code

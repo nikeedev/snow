@@ -18,6 +18,7 @@ class Application {
 public:
 
     /**
+     * \fn
      * \brief Application class, sets up all from window, camera and game loop.
      * \param title Window title
      * \param screen_size Sets the window size for the initial window `glm::vec2`.
@@ -27,12 +28,6 @@ public:
 
     // Application();
 
-    /**
-     * \brief Gameloop for your Snow application:
-     * \param SnowInit Pass an init function which will be ran once before the gameloop. Put your "static" game code in here, which will be run once.
-     * \param SnowUpdate Pass an update function which will be ran in the gameloop. Put your "dynamic" game code in here
-     *
-    **/
     void loop();
 
     void SetWindowTitle(const char* title) const;

@@ -1,7 +1,8 @@
 #include <snow.hpp>
+#include "glm/glm.hpp"
 
-#ifndef SNOW_MYSCENE_H
-#define SNOW_MYSCENE_H
+#ifndef MYSCENE_H
+#define MYSCENE_H
 
 
 class MyScene : public Scene {
@@ -10,13 +11,23 @@ public:
         this->background_color = glm::vec4{0.39f, 0.6f, 1.0f, 1.0f};
     }
 
-    void Once() override;
+    Triangle triangle = Triangle(glm::vec3(), glm::vec2(), glm::vec4());
 
-    void Update(double dt) override;
+    void MyScene::Once() override {
 
-    void Draw() override;
+    }
+
+    void MyScene::Update(double dt) override  {
+
+    }
+
+    void MyScene::Draw() override {
+
+        triangle.render();
+    }
+
 
 };
 
 
-#endif //SNOW_MYSCENE_H
+#endif //MYSCENE_H
