@@ -1,4 +1,4 @@
 build/
-out/
+bin/
 .vs
 .vscode

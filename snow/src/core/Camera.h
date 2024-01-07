@@ -22,7 +22,7 @@ public:
      */
     explicit Camera(glm::vec2 screen_size, glm::vec2 pos);
 
-    void Camera::update(glm::vec2 window_size) const;
+    void update(glm::vec2 window_size) const;
 
 
 };
