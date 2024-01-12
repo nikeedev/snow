@@ -1,2 +1,0 @@
-/usr/bin/ar qc libsnow.a CMakeFiles/snow.dir/src/core/Application.cpp.o CMakeFiles/snow.dir/src/core/Shader.cpp.o CMakeFiles/snow.dir/src/core/Window.cpp.o CMakeFiles/snow.dir/src/objects/Rectangle.cpp.o CMakeFiles/snow.dir/src/core/Camera.cpp.o
-/usr/bin/ranlib libsnow.a

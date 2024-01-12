@@ -1,9 +1,0 @@
-/home/nikee/dev/snow/bin/CMakeFiles/edit_cache.dir
-/home/nikee/dev/snow/bin/CMakeFiles/rebuild_cache.dir
-/home/nikee/dev/snow/bin/snow/CMakeFiles/snow.dir
-/home/nikee/dev/snow/bin/snow/CMakeFiles/edit_cache.dir
-/home/nikee/dev/snow/bin/snow/CMakeFiles/rebuild_cache.dir
-/home/nikee/dev/snow/bin/sandbox/CMakeFiles/sandbox.dir
-/home/nikee/dev/snow/bin/sandbox/CMakeFiles/glad.dir
-/home/nikee/dev/snow/bin/sandbox/CMakeFiles/edit_cache.dir
-/home/nikee/dev/snow/bin/sandbox/CMakeFiles/rebuild_cache.dir
