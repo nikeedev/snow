@@ -32,7 +32,7 @@ target_include_directories(snow PUBLIC
                 ${CMAKE_BINARY_DIR}/vcpkg_installed/x64-osx/include
         endif (APPLE)
         if (APPLE AND ${CMAKE_APPLE_SILICON_PROCESSOR} == "arm64")
-                ${CMAKE_BINARY_DIR}/vcpkg_installed/arm64-mac/include
+                ${CMAKE_BINARY_DIR}/vcpkg_installed/arm64-osx/include
         endif (APPLE)
 )
 
