@@ -1,15 +1,8 @@
-## GLAD
-#add_library(GLAD STATIC ${CMAKE_SOURCE_DIR}/libs/src/glad.c)
-
-include_directories(
-        src
-        ${CMAKE_SOURCE_DIR}/libs/include
-)
-
-## Link GLFW library
-#add_library(GLFW_LIB STATIC IMPORTED)
-#set_target_properties(GLFW_LIB PROPERTIES IMPORTED_LOCATION "${CMAKE_SOURCE_DIR}/libs/lib/glfw3.lib")
-#
+find_package(fmt CONFIG REQUIRED)
+find_package(glad CONFIG REQUIRED)
+find_package(glfw3 CONFIG REQUIRED)
+find_package(glm CONFIG REQUIRED)
+find_package(Stb REQUIRED)
 
 set(SNOW_SRC
         src/snow.hpp
@@ -25,5 +18,17 @@ set(SNOW_SRC
 
 add_library(snow STATIC
         ${SNOW_SRC}
+)
+
+target_include_directories(snow PUBLIC
+        ${CMAKE_CURRENT_SOURCE_DIR}/src 
+        ${CMAKE_BINARY_DIR}/vcpkg_installed/x64-windows/include
+)
+
+target_link_libraries(snow PRIVATE
+        glfw
+        glad::glad
+        glm::glm
+        fmt::fmt
 )
 
