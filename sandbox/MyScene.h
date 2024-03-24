@@ -13,15 +13,15 @@ public:
 
     Triangle triangle = Triangle(glm::vec3(), glm::vec2(), glm::vec4());
 
-    void MyScene::Once() override {
+    void Once() override {
 
     }
 
-    void MyScene::Update(double dt) override  {
+    void Update(double dt) override  {
 
     }
 
-    void MyScene::Draw() override {
+    void Draw() override {
 
         triangle.render();
     }

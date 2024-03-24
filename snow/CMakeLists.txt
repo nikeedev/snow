@@ -21,8 +21,19 @@ add_library(snow STATIC
 )
 
 target_include_directories(snow PUBLIC
-        ${CMAKE_CURRENT_SOURCE_DIR}/src 
-        ${CMAKE_BINARY_DIR}/vcpkg_installed/x64-windows/include
+        ${CMAKE_CURRENT_SOURCE_DIR}/src
+        if (WIN32 AND CMAKE_HOST_SYSTEM_PROCESSOR == "AMD64") 
+                ${CMAKE_BINARY_DIR}/vcpkg_installed/x64-windows/include
+        endif (WIN32)
+        if (UNIX)
+                ${CMAKE_BINARY_DIR}/vcpkg_installed/x64-linux/include
+        endif (UNIX)
+        if (APPLE AND ${CMAKE_APPLE_SILICON_PROCESSOR} == "x86_64")
+                ${CMAKE_BINARY_DIR}/vcpkg_installed/x64-osx/include
+        endif (APPLE)
+        if (APPLE AND ${CMAKE_APPLE_SILICON_PROCESSOR} == "arm64")
+                ${CMAKE_BINARY_DIR}/vcpkg_installed/arm64-mac/include
+        endif (APPLE)
 )
 
 target_link_libraries(snow PRIVATE
