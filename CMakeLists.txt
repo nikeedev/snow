@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.26)
 
 project(snow_engine)
 
-set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD 20)
 
 # Add the engine src code
 add_subdirectory(snow)
