@@ -14,10 +14,6 @@ set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/lib") # .lib and .a
 configure_file(shaders/shader.vert ${CMAKE_CURRENT_BINARY_DIR}/Debug/shaders/shader.vert COPYONLY)
 configure_file(shaders/shader.frag ${CMAKE_CURRENT_BINARY_DIR}/Debug/shaders/shader.frag COPYONLY)
 
-<<<<<<< HEAD
-
-=======
->>>>>>> e8247a586280afffd386c0b23859685e1f5de6d2
 include_directories(
         ../snow/src
 )
